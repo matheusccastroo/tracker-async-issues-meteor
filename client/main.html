@@ -1,0 +1,21 @@
+<head>
+  <title>flush-async-issue</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <button id="show">Click Me to show hidden content</button>
+  <button id="hide">Click Me to hide content</button>
+
+  {{#if showContent}}
+    <div>
+      <p>Showing hidden content</p>
+      <p id="hidden-content-main">"Hello from the modal!"</p>
+    </div>
+  {{/if}}
+</template>
