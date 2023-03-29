@@ -8,7 +8,10 @@ Template.hello.onCreated(function helloOnCreated() {
   this.shouldShowContent = new ReactiveVar(false);
 
   Tracker.autorun(async (computation) => {
-    const show = this.shouldShowContent.get()
+    // If you move this show to the line below the `await`, then it won't re-run when the reactive var changes.
+    // However, it will work the first time.
+    const show = this.shouldShowContent.get();
+
     // Simulate some async methods
     await Tracker.withComputation(computation, () => new Promise(r => setTimeout(r, 5000)));
 
